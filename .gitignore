@@ -3,3 +3,4 @@
 /src/test/resources/logs/*.log
 **.DS_Store
 .allure
+.iml
