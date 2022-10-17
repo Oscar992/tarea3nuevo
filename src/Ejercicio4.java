@@ -18,8 +18,8 @@ public class Ejercicio4 {
             opcion = scanner.nextLine();
 
             if (mapPrecio.containsKey(opcion)) {
-                System.out.printf(String.format("El precio para el item %s es %2f y su stock es %d", opcion,
-                        mapPrecio.get(opcion), mapStock.get(opcion)));
+                System.out.printf("El precio para el item %s es %2f y su stock es %d", opcion,
+                        mapPrecio.get(opcion), mapStock.get(opcion));
             }
 
         } while (mapPrecio.containsKey(opcion));
