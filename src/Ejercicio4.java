@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,12 +17,12 @@ public class Ejercicio4 {
             System.out.print("Ingrese pedido:");
             opcion = scanner.nextLine();
 
-            if (mapPrecio.get(opcion) != null) {
-                System.out.println(String.format("El precio para el item %s es %2f y su stock es %d", opcion,
+            if (mapPrecio.containsKey(opcion)) {
+                System.out.printf(String.format("El precio para el item %s es %2f y su stock es %d", opcion,
                         mapPrecio.get(opcion), mapStock.get(opcion)));
             }
 
-        } while (mapPrecio.get(opcion) != null);
+        } while (mapPrecio.containsKey(opcion));
 
         scanner.close();
     }
@@ -40,10 +41,10 @@ public class Ejercicio4 {
     static HashMap<String, Double> crearMapPrecio(ArrayList<String> lista) {
         var map = new HashMap<String, Double>();
 
-        for (String string : lista) {
-            var item = string.split(",");
-            var priceusd = item[0].split("U");
-            map.put(item[1], Double.parseDouble(priceusd[0]));
+        for (var string : lista) {
+            var item = Arrays.asList(string.split(","));
+            var stringPrice = item.get(0).substring(0, item.get(0).indexOf("U"));
+            map.put(item.get(1), Double.parseDouble(stringPrice));
         }
 
         return map;
@@ -52,11 +53,11 @@ public class Ejercicio4 {
     static HashMap<String, Integer> crearMapStock(ArrayList<String> lista) {
         var map = new HashMap<String, Integer>();
 
-        for (String string : lista) {
-            var item = string.split(",");
-            map.put(item[1], Integer.parseInt(item[2]));
+        for (var string : lista) {
+            var item = Arrays.asList(string.split(","));
+            map.put(item.get(1), Integer.parseInt(item.get(2)));
         }
-        
+
         return map;
     }
 

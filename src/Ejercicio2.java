@@ -13,7 +13,7 @@ public class Ejercicio2 {
             System.out.print("Ingrese numero:");
             opcion = scanner.nextInt();
 
-            if (map.get(opcion) != null) {
+            if (map.containsKey(opcion)) {
                 System.out.println(map.get(opcion));
             } else if (opcion != -1) {
                 System.out.println("Eso no existe");

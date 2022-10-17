@@ -36,7 +36,7 @@ public class Ejercicio3 {
     }
 
     static void imprimirLista(ArrayList<String> lista) {
-        for (String string : lista) {
+        for (var string : lista) {
             System.out.println(lista.indexOf(string) + " " + string);
         }
     }
